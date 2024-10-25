@@ -16,4 +16,12 @@ const addToLS = (id)=>{
     saveCartToLS(cart)
     // SAVE TO LOCAL STROGE
 }
-export {addToLS,getStroge}
+
+const removeFormLS = (id)=>{
+    const cart =getStroge();
+    const remining = cart.filter(idx =>  idx !== id);
+
+    saveCartToLS(remining)
+
+  }
+export {addToLS,getStroge,removeFormLS}

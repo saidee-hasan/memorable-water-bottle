@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Bottle from "../Bottle/Bottle";
 import "./Bottles.css";
-import { addToLS, getStroge } from "../../utilities/localStoges";
+import { addToLS, getStroge,  removeFormLS } from "../../utilities/localStoges";
 import Cart from "../Cart/Cart";
 function Bottles() {
   const [cart, setCart] = useState([]);
@@ -38,9 +38,16 @@ const saveCart = []
     setCart(newCart);
   };
 
+const handleRemove =(id)=>{
+  const remCart = cart.filter(bottle=> bottle.id !== id)
+ setCart(remCart)
+  removeFormLS(id)
+
+}
+
   return (
     <div className="mx-auto container">
-      <Cart  cart={cart}/>
+      <Cart  cart={cart} handleRemove={handleRemove}/>
       <h2 className="text-center text-2xl p-10">
         Bottles Available {bottles.length}
       </h2>
