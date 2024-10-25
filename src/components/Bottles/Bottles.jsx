@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Bottle from "../Bottle/Bottle";
 import "./Bottles.css";
 import { addToLS, getStroge } from "../../utilities/localStoges";
+import Cart from "../Cart/Cart";
 function Bottles() {
   const [cart, setCart] = useState([]);
   const [bottles, setBottles] = useState([]);
@@ -39,11 +40,12 @@ const saveCart = []
 
   return (
     <div className="mx-auto container">
+      <Cart  cart={cart}/>
       <h2 className="text-center text-2xl p-10">
         Bottles Available {bottles.length}
       </h2>
 
-      <h3 className="text-center text-2xl p-10">Card Added {cart.length}</h3>
+    
 
       <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4 items-center  ">
         {bottles.map((item, index) => (
