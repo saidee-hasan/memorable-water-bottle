@@ -17,15 +17,15 @@ function Bottles() {
 
     if (bottles.length) {
       const storeCart = getStroge();
-
+const saveCart = []
       for (const id of storeCart) {
         const bottle = bottles.find((bottle) => bottle.id === id);
 
         if (bottle) {
-          
+         saveCart.push(bottle)
         }
       }
-      console.log(setCart);
+  setCart(saveCart)
     }
   }, [bottles]);
 
